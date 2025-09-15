@@ -8,4 +8,6 @@ composer.phar
 /*.sql
 .env
 /nbproject/private/
-/public/application/extensions/
+/public/application/extensions/# Ignore env files
+.env
+.env.*
