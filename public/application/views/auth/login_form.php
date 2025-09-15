@@ -22,7 +22,7 @@ class="text-center"
         ?>
     </a>
 
-    <h2 class="form-signin-heading"><?php  if($whitelabel_detail){  echo ucfirst($whitelabel_detail['name']); }else{echo $this->config->item('branding_name');}?> Login</h2>
+    <h2 class="form-signin-heading"><?php echo $this->config->item('branding_name'); ?> Login</h2>
 	
 		<?php $email = '';
             $password = '';

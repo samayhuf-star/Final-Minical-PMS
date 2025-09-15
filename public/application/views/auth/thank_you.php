@@ -26,7 +26,7 @@
                     }
                     else
                     {
-                        echo '<img src="'.base_url().'/images/'.$this->config->item('branding_logo').'">';
+                        echo '<img alt="Samay PMS" style="max-height:60px" src="'.base_url().'/images/'.$this->config->item('branding_logo').'">';
                     }
                  ?>
 	</a>

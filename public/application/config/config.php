@@ -423,5 +423,9 @@ $config['module_location'] = APPPATH.'extensions/';
 
 $config['module_base_path']	= $protocol . $_SERVER['HTTP_HOST'];
 
+// Branding
+$config['branding_name'] = 'Samay PMS';
+$config['branding_logo'] = 'samay-pms-logo.svg';
+
 /* End of file config.php */
 /* Location: ./application/config/config.php */

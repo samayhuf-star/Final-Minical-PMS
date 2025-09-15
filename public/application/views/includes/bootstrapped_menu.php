@@ -41,7 +41,7 @@
                 <a href='#'  id="myPropertyMenu">
             <?php } ?>
                 
-                <span class="logo"> <b><?php echo substr($this->company_name, 0, 30).((strlen($this->company_name)>30)?'...':''); ?></b>
+                <span class="logo"> <b><?php echo $this->config->item('branding_name'); ?></b>
                 </span>
                 <?php if(count($my_companies) > 1) { ?><span class="caret multi-prop"></span> <?php } ?>
                 

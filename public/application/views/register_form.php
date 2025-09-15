@@ -35,12 +35,12 @@
                      if($whitelabelinfo){
                         echo '<img src="'.base_url().'/images/'.$whitelabelinfo['logo'].'">';
                     }else{
-                        echo '<img src="'.base_url().'/images/'.$this->config->item('branding_logo').'">';
+                        echo '<img alt="Samay PMS" style="max-height:60px" src="'.base_url().'/images/'.$this->config->item('branding_logo').'">';
                     }
             ?>
 		</a>
 		<br/>
-                <?php echo l('Sign up with', true);?> <?php if($whitelabelinfo){ echo ucfirst($whitelabelinfo['name']);}else{echo $this->config->item('branding_name');} ?><br/>
+                <?php echo l('Sign up with', true);?> <?php echo $this->config->item('branding_name'); ?><br/>
 		<small><?php echo l('No Credit Card Information required', true);?></small>
 	</h2>
 </div>
