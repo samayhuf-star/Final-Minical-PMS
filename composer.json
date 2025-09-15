@@ -5,5 +5,10 @@
     "lifenpag/asaas-php": "^1.0",
     "friendsofphp/php-cs-fixer": "^3.0",
     "sonata-project/google-authenticator": "^2.3"
+  },
+  "config": {
+    "platform": {
+      "php": "7.3.33"
+    }
   }
 }
