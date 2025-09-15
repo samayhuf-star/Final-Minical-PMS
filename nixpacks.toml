@@ -2,7 +2,11 @@
 nixPkgs = ['php', 'phpPackages.composer', 'mysql']
 
 [phases.install]
-cmds = ['composer install --no-dev --optimize-autoloader']
+cmds = [
+  'composer install --no-dev --optimize-autoloader',
+  'find public/js -name "*.js" -exec iconv -f ISO-8859-1 -t UTF-8 {} -o {}.utf8 \\;',
+  'find public/js -name "*.js.utf8" -exec sh -c "mv \\"$1\\" \\"${1%.utf8}\\"" _ {} \\;'
+]
 
 [phases.build]
 cmds = ['echo "Build phase completed"']
