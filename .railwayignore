@@ -1,0 +1,23 @@
+# Ignore files that might trigger nixpacks
+composer.json
+composer.lock
+vendor/
+
+# Ignore development files
+.env
+.env.*
+*.log
+
+# Ignore documentation
+README.md
+DEPLOYMENT.md
+
+# Ignore IDE files
+.vscode
+.idea
+*.swp
+*.swo
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
