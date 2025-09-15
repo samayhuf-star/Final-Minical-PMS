@@ -65,6 +65,28 @@ miniCal documentation is available here [minical.doc](https://docs.minical.io/).
 * Install miniCal Database by going to `http://localhost/minical/public/install.php` in your browser, following the installation steps, and create an admin account.
 * That's it. You are done! Visit miniCal at `http://localhost/minical/public`
 
+## Deploy with Docker (single container)
+
+Build and run using Docker (contains Nginx + PHP-FPM):
+
+```
+docker build -t ghcr.io/OWNER/REPO:latest .
+docker run -d --name minical \
+  -p 8080:80 \
+  -e DATABASE_HOST=db.example.com \
+  -e DATABASE_USER=minical \
+  -e DATABASE_PASS=MiniCalPwd \
+  -e DATABASE_NAME=minical \
+  -e ENVIRONMENT=production \
+  -e PROJECT_URL=http://YOUR_HOST:8080/public \
+  -e API_URL=http://YOUR_HOST:8080/api \
+  ghcr.io/OWNER/REPO:latest
+```
+
+Then open `http://YOUR_HOST:8080/public/install.php` to complete setup.
+
+GitHub Actions workflow `.github/workflows/docker-image.yml` builds and pushes to GHCR on push to `main`/`master`.
+
 ## Demo
 Visit [miniCal Demo](https://demo.minical.io/).
 
