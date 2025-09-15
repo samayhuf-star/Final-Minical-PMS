@@ -230,7 +230,11 @@ class Auth extends MY_Controller
                     $security_data = $this->Option_model->get_option_by_company('company_security',$this->session->userdata('current_company_id')); 
                 }
 
-                $security = json_decode($security_data[0]['option_value'], true);
+                if (!empty($security_data) && isset($security_data[0]['option_value'])) {
+                    $security = json_decode($security_data[0]['option_value'], true);
+                } else {
+                    $security = array('security_status' => 0); // Default security settings
+                }
 
                 if($security['security_status'] == 1 && $email != SUPER_ADMIN && $email != 'support@roomsy.com'){
                     $encode_email = base64_encode($email);
@@ -321,7 +325,9 @@ class Auth extends MY_Controller
 
             $mathced_vendor_company_ids = $this->Option_model->get_option_by_company('company_security',$vendor_company_ids, true);
 
-            $company_id = $mathced_vendor_company_ids[0]['company_id'];
+            if (!empty($mathced_vendor_company_ids) && isset($mathced_vendor_company_ids[0]['company_id'])) {
+                $company_id = $mathced_vendor_company_ids[0]['company_id'];
+            }
 
         }
 
@@ -399,7 +405,9 @@ class Auth extends MY_Controller
 
             $mathced_vendor_company_ids = $this->Option_model->get_option_by_company('company_security',$vendor_company_ids, true);
 
-            $company_id = $mathced_vendor_company_ids[0]['company_id'];
+            if (!empty($mathced_vendor_company_ids) && isset($mathced_vendor_company_ids[0]['company_id'])) {
+                $company_id = $mathced_vendor_company_ids[0]['company_id'];
+            }
 
         }
 
@@ -448,7 +456,7 @@ class Auth extends MY_Controller
             if($otp_verification){
                 $security_data =  $this->Option_model->get_option_by_company('company_security',$company_id);
         
-                if($security_data){
+                if($security_data && isset($security_data[0]['option_value'])){
 
                     $secure = json_decode($security_data[0]['option_value'], true);
 

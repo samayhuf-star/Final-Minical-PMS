@@ -148,6 +148,16 @@
 						</select>
 					</div>
 				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label"><?php echo l('Booking Type', true); ?></label>
+					<div class="col-sm-8">
+						<select class="form-control" name="booking_kind" required>
+							<option value="">-- Select --</option>
+							<option value="Book1">Book1</option>
+							<option value="Book2">Book2</option>
+						</select>
+					</div>
+				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-success" id="add_payment_button">
