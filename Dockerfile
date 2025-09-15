@@ -29,6 +29,10 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction
 # Copy application files
 COPY . .
 
+# Copy startup script
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
 # Set proper permissions
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
@@ -40,5 +44,5 @@ COPY docker/apache.conf /etc/apache2/sites-available/000-default.conf
 # Expose port
 EXPOSE 80
 
-# Start Apache
-CMD ["apache2-foreground"]
+# Start Apache with Railway port
+CMD ["/start.sh"]
